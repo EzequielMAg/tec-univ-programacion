@@ -1,0 +1,29 @@
+.cuadrado{
+    background-color: rgb(255, 0, 132);
+   /*  width: 200px;
+    height: 200px; */ /* Estas dimensiones son valores fijos y se aplican por dafault en el contenido. 
+    Esta implicitamente por default, la sig declaracion:
+    box-sizing: content-box; Y esta se aplica para todo tag HTML*/
+    
+    /* width: 20%;     
+    height: 80%;  *//* Valores variables, que se van adaptando al ancho de la pagina/pantalla. Ya que son unidades relativas*/
+    
+
+    width: 20%;     
+    height: 20%; 
+    padding: 10px;
+    box-sizing: border-box; /* Esta prop hace que se respete el ancho (width) y alto (height) total de la caja y no del contenido*/
+}
+
+html {
+     box-sizing: border-box;
+}
+
+/*Para todo elemento del documento, y para todo pseudoelemento antes y despues... Aplica tal cosa*/
+/* *, *:before, *:after { 
+    box-sizing: inherit;
+} */
+
+/* p::before {
+    content: 'Ezequiel';
+} */

@@ -1,0 +1,64 @@
+p{
+    /* color: blue; */           /* con el nombre directamente del color */
+    /* color: rgb(255, 0, 0); */ /* con formato RGB -> Reed Green Blue */
+    /* color: #ff0000; */        /* formato hexadecimal */
+    /* color: hsl(0, 100%, 50%); */  /* formato HSL -> significa tono, saturación y luminosidad. 
+                                    Se basa en la rueda de colores RGB. Cada color tiene un ángulo y 
+                                    un valor porcentual para los valores de saturación y luminosidad.*/ 
+    color: black;
+}
+
+h1{
+    color: rgb(26, 96, 248);
+}
+
+h2{
+    color: rgb(244, 40, 40);
+}
+
+span{
+    color: rgb(248, 26, 163);
+}
+
+section h2{
+    color: rgb(255, 183, 0);
+}
+
+
+h3, h4{
+    font-size: 2rem;
+}
+
+/* nav a:first-child{ */
+nav a:first-of-type{ /* Este es igual a lo declarado en la linea anterior */
+    text-transform: uppercase;
+}
+
+/* nav a:last-child{ */
+nav a:last-of-type{
+    text-transform: uppercase;
+}
+
+nav a:nth-child(3){ /* Este sirve para selecciona un hijo especifico. Hay que pasarle el numero del elemento hijo, tipo un array */
+    text-transform: uppercase;
+}
+
+#titulo-h3{
+    text-transform: uppercase;
+}
+
+
+.section-1{
+    background-color: aqua;
+    width: 50%;
+}
+
+.section-2{
+    background-color: rgb(214, 135, 245);
+}
+
+.contenedor{
+    width: 300px;
+}
+
+
