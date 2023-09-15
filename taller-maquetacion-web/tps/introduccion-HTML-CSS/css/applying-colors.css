@@ -1,0 +1,41 @@
+/* #region TEXT COLOR  */
+.red-text{
+    color: red;
+}
+
+.yellow-text {
+    color: yellow;
+}
+
+.green-text {
+    color: green;
+}
+
+.blue-text{
+    color: blue;
+}
+/* #endregion */
+
+/* #region BACK-GROUND COLOR */
+.red-backg{
+    background-color: red;
+}
+
+.yellow-backg{
+    background-color: yellow;
+}
+
+.green-backg{
+    background-color: green;
+}
+
+.blue-backg{
+    background-color: blue;
+}
+
+.gray-backg {
+    background-color: gray;
+}
+/* #endregion */
+
+

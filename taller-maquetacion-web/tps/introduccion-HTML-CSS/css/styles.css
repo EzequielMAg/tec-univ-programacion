@@ -1,0 +1,23 @@
+.sports-car-image {
+    max-width: 50%; 
+    height: auto;
+}
+
+.form-dimensions{
+    width: min(25rem, 100%);
+}
+
+
+/* #region INCREASE TEXT*/
+.increase-text-1 {
+    font-size: 1.5rem;
+}
+
+.increase-text-2 {
+    font-size: 2rem;
+}
+
+.increase-text-3 {
+    font-size: 2.5rem;
+}
+/* #endregion */

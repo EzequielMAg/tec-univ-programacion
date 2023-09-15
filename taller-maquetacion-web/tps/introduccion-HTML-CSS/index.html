@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP Introduccion HTML y CSS</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/applying-colors.css">
 </head>
 
 <body>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  EJERCICIO 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+    <!--#region >>>>>>>>>>>>>>>>  EJERCICIO 1 >>>>>>>>>>>>>>>> -->
     <section>
         <h1>TP Introduccion HTML y CSS (Ejercicio 1)</h1>
 
@@ -23,8 +26,9 @@
             <li>Elemento 3</li>
         </ul>
     </section>
-    <hr>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  EJERCICIO 2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <hr> <!--#endregion -->
+
+    <!--#region >>>>>>>>>>>>>>>>  EJERCICIO 2 >>>>>>>>>>>>>>>> -->
     <section>
         <h2>Redes sociales (Ejercicio 2)</h2>
         <ul>
@@ -35,18 +39,66 @@
             <li><a href="mailto:ezequiel.m.aguilar@gmail.com">Contáctenos a nuestro Gmail</a></li>
         </ul>
     </section>
-    <hr>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  EJERCICIO 3 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <hr> <!--#endregion-->
+
+    <!--#region >>>>>>>>>>>>>>>>  EJERCICIO 3 >>>>>>>>>>>>>>>> -->
     <section>
         <h2>Ejercicio 3</h2>
-        <img src="https://cdn.pixabay.com/photo/2017/08/10/08/47/lamborghini-2620117_1280.jpg" alt="Auto deportivo"
-            width="640" height="426" >
-    </section>
-    <section>
-        <img src="https://cdn.pixabay.com/photo/2017/08/10/08/47/lamborghini-2620117_1280.jpg" alt="Auto deportivo"
-           style="max-width: 30%; height: auto;">    <!-- max-width: 100%; /* La imagen no será más ancha que el contenedor * -->
-    </section>
+        <!-- <img src="https://cdn.pixabay.com/photo/2017/08/10/08/47/lamborghini-2620117_1280.jpg" alt="Auto deportivo"
+            width="640" height="426"> -->
+        <img class="sports-car-image"
+            src="https://cdn.pixabay.com/photo/2017/08/10/08/47/lamborghini-2620117_1280.jpg" alt="Auto deportivo">
+        <!-- max-width: 100%; /* La imagen no será más ancha que el contenedor * -->
+    </section><br>
+    <hr><!--#endregion-->
 
+    <!--#region >>>>>>>>>>>>>>>>  EJERCICIO 4 >>>>>>>>>>>>>>>> -->
+    <section>
+        <form class="form-dimensions" action="">
+            <h2>Ejercicio 4</h2>
+
+            <fieldset>
+                <legend>Formulario</legend>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required><br><br>
+                </div>
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required><br><br>
+                </div>
+
+                <div>
+                    <!-- <button type="submit">Enviar</button> -->
+                    <input type="submit"></input>
+                </div>
+            </fieldset>
+        </form><br>
+    </section>
+    <hr><!--#endregion-->
+
+    <!--#region >>>>>>>>>>>>>>>>  EJERCICIO 5 >>>>>>>>>>>>>>>> -->
+    <section>
+        <h2>Ejercicio 5</h2>
+        <div class="gray-backg">
+            <p class="red-text yell">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab deserunt alias quidem sequi eaque voluptatibus 
+                mollitia obcaecati ipsam aliquid eos dolore adipisci rem distinctio iure, repudiandae id molestiae ea cum.
+            </p>
+            <p class="blue-text increase-text-1 yellow-backg">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab deserunt alias quidem sequi eaque voluptatibus 
+                mollitia obcaecati ipsam aliquid eos dolore adipisci rem distinctio iure, repudiandae id molestiae ea cum.
+            </p>
+            <p class="green-text increase-text-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab deserunt alias quidem sequi eaque voluptatibus 
+                mollitia obcaecati ipsam aliquid eos dolore adipisci rem distinctio iure, repudiandae id molestiae ea cum.
+            </p>
+            <p class="yellow-text increase-text-3 blue-backg">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab deserunt alias quidem sequi eaque voluptatibus 
+                mollitia obcaecati ipsam aliquid eos dolore adipisci rem distinctio iure, repudiandae id molestiae ea cum.
+            </p>
+        </div>
+    </section><br><!--#endregion-->
     <hr>
 </body>
 
