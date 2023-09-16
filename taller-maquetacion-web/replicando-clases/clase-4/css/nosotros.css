@@ -1,0 +1,22 @@
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.articulo {
+    display: flex;
+    flex-direction: column;
+
+    background-color: blue;
+    color: white;
+    padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+.articulo p {
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+
+    text-align: justify;
+    /* text-align: center; */
+}
