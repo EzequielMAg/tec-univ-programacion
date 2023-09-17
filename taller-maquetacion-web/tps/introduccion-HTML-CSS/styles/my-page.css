@@ -59,6 +59,12 @@ body {
     margin: 5rem 2rem 0rem 2rem;
 }
 
+.section-flex {
+    display: flex;
+    text-align: justify;
+    gap: 3rem;
+}
+
 footer {
     width: 100%;
     height: 10rem;
@@ -68,8 +74,3 @@ footer {
     align-items: center;    /* Sin el atributo anterior, este no se puede utilizar */
 }
 
-.section-flex {
-    display: flex;
-    text-align: justify;
-    gap: 3rem;
-}
