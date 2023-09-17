@@ -1,0 +1,75 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: #e4e3ca;
+}
+
+
+.nav-bar {
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(19, 29, 172);
+
+    display: flex;
+    align-items: center;    /* Sin el atributo anterior, este no se puede utilizar */
+    position: fixed;
+}
+
+.links-container {
+    padding-left: 5rem;
+}
+
+.link-nav-bar {
+    color: white;
+    text-decoration: none;
+    cursor: default;    /* Para quitar el cursor-manito que aparecia por el elemento <a> */
+
+    padding: 1.4rem 3rem;
+}
+
+.link-nav-bar:hover {
+    background-color: #091fdf;
+}
+
+.link-nav-bar:active {
+    background-color: #444dd8;
+}
+
+.hero {
+    display: flex;
+    padding-top: 4rem;
+    /* position: absolute; */
+}
+
+.hero img {
+    width: 25%;
+    height: auto;
+}
+
+.format-main {
+    margin: 5rem 2rem 0rem 2rem;
+}
+
+footer {
+    width: 100%;
+    height: 10rem;
+    background-color: rgb(19, 29, 172);
+
+    display: flex;
+    align-items: center;    /* Sin el atributo anterior, este no se puede utilizar */
+}
+
+.section-flex {
+    display: flex;
+    text-align: justify;
+    gap: 3rem;
+}

@@ -1,0 +1,109 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+.sports-car-image {
+    max-width: 50%; 
+    height: auto;
+}
+
+.form-dimensions{
+    width: min(25rem, 100%);
+}
+
+
+/* #region INCREASE TEXT*/
+.increase-text-1 {
+    font-size: 1.5rem;
+}
+
+.increase-text-2 {
+    font-size: 2rem;
+}
+
+.increase-text-3 {
+    font-size: 2.5rem;
+}
+/* #endregion */
+
+/* #region ALING TEXT*/
+.text-left {
+    text-align: left;
+    width: 30%;
+}
+
+.text-center{
+    text-align: center;
+    width: 30%;
+}
+
+.text-right{
+    text-align: right;
+    width: 30%;
+}
+/* #endregion */
+
+
+.elements li{
+    color: blue;
+    list-style-type: upper-roman;
+}
+
+/* #region TABLE STYLES */
+/*  SOURCE LINK: https://lenguajehtml.com/html/tablas/etiqueta-html-table/ */
+table {
+    border-collapse: collapse;
+    /* border: 1px solid #ccc; */
+}
+
+td, th {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
+th {
+    background: #11ca2a;
+    color: #000000;
+    text-transform: uppercase;
+    border: 1px solid #111;
+
+
+}
+
+td {
+    text-align: center;
+    border: 1px solid #111;
+    color: #333;
+    font-size: 18px;
+}
+/* #endregion */
+
+/* #region  DESIGNING A BUTTON*/
+/* SOURCE LINK: https://www.eniun.com/botones-css-estilos/ */
+.my-button {
+    color: white;
+    background-color: #0fc40f;
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    display: inline-block;
+
+    text-decoration: none;    
+    /* cursor: pointer; */
+}
+
+.my-button:hover {
+    background-color: #09af09;;
+  }
+  .my-button:active {
+    background-color: #12ce12;;
+  }
+/* #endregion */
+
+
+
+
