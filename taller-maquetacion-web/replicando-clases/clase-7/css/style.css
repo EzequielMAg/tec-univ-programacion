@@ -1,0 +1,71 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,*:after,*:before{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+}
+
+
+.contenedor-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lista-productos{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: .5rem;
+    width: 80%;
+    /* column-gap: 2rem; */
+    /* background-color: aqua; */
+}
+
+.producto{
+    background-color: aqua;
+}
+
+.producto:nth-child(1)
+{
+    /* background-color: blue; */
+    grid-column: 1/7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+}
+
+.producto:nth-child(2)
+{
+    /* background-color: blue; */
+    grid-column: 1/4;
+}
+
+.producto:nth-child(3)
+{
+    /* background-color: blue; */
+    grid-column: 4/7;
+}
+
+.producto:nth-child(4)
+{
+    /* background-color: blue; */
+    grid-column: 1/3;
+}
+
+.producto:nth-child(5)
+{
+    /* background-color: blue; */
+    grid-column: 3/5;
+}
+
+.producto:nth-child(6)
+{
+    /* background-color: blue; */
+    grid-column: 5/7;
+}

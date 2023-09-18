@@ -1,16 +1,4 @@
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-body {
-    margin: 0;
-    font-family: 'Raleway', sans-serif; /* Fuente de google fonts */
-}
+@import url(../../../css/globales.css);
 
 hr {
     margin: 0;
@@ -22,12 +10,10 @@ a {
     color: rgb(78, 78, 78);
 }
 
-
 .main-title {
     text-align: center;
-    font-size: 4.16rem;
+    font-size: 3.8rem;
     /* font-size: 2.6rem; */
-
 }
 
 .blue-text {
@@ -35,7 +21,7 @@ a {
 }
 
 .links-nav-bar {
-    display: flex;
+    display: flex;  /* Sin este atributo, el siguiente no funciona */
     justify-content: center; /* Centra horizontalmente el contenido, los items <a> */
 
     /* margin-top: .1rem;
@@ -43,22 +29,22 @@ a {
     margin-top: .16rem;
     margin-bottom: .32rem;
     /* gap: 1rem; */
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
-.link-nav-bar {
+.links-nav-bar a{
     /* padding: 1rem 4rem; */
     padding: 1.6rem 6.4rem;
 }
 
-.link-nav-bar:hover {
+.links-nav-bar a:hover {
     background-color: #1185d3;
     color: white;
     /* background-color: #e0e0e0; */
     /* color: white; */
 }
 
-.link-nav-bar:active {
+.links-nav-bar a:active {
     background-color: #67acda;
     color: white;
     /* background-color: #b5daf8; */
@@ -69,8 +55,81 @@ a {
     height: auto;
 }
 
-/* .prueba {
-    text-decoration: none;
-    color: red;
+/* --------------------------------------------------------------------------------------------------------- */
+.title-categ {
+    text-align: center;
+    font-size: 3.5rem;
 }
- */
+
+.list-categ-products {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.categ-product {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */ /* Este lo comente, por que voy a centrar la palabra del boton en la linea 82. Una clase mas especifica */
+}
+
+.categ-product img {
+    width: 35rem;;
+    /* height: 20rem; */
+}
+
+.categ-product a{
+    padding: 2.5rem;
+    text-align: center;
+    font-size: 1.6rem;
+    color: black;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.categ-product a:hover {
+    background-color: #027bc1;
+    color: white;
+    transition: all .5s ease; /* Le da un efecto de delay cuando se pasa el mouse entre los botones */
+
+}/* ----------------------------------------------------------------------------------------------------- */
+.container-about-us {
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-about-us img { /* Funciona para cuando se hace zoom, hace que se mantenga en todo el anchjo de la pantalla */
+    width: 75%;
+    height: auto;
+}
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* CENTRADO VERTICAL :v pero cuando se pone row, se invierte con el de abajo*/
+    /* align-items: center; */  /* Seria para centrar todo en HORIZONTAL, al tener column */
+
+    background-color: #027bc1;
+    color: white;
+    font-size: 1.3rem;
+    /* padding: 10rem 7rem; */ /* Anterirmente no usaba display flex, entonces solo lo posicionaba con el padding */
+    padding-left: 7rem;
+}
+
+.about-us p {
+    width: 60%;
+    line-height: 2.5rem;
+    text-align: justify;
+
+}
+
+
+
+
+
+
+
+
+
+
+

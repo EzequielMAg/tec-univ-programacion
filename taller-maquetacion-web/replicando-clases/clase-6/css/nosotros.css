@@ -1,0 +1,29 @@
+@import url(./../../../css/globales.css);
+
+.contenedor{
+    display: flex;
+    /* width: 90%;
+    margin: 5rem auto; */
+}
+
+.imagen {
+    /* flex: 50%; */ /* RESPECTO AL CONTENEDOR. HACE QUE LA IMAGEN SE ESTRIRE O SE APLASTE AL HACER ZOOM. NO ME GUSTA */
+    width: 70rem;
+    /* object-fit: cover; */ /* PARA QUE NO SE APLASTE LA IMAGEN. HACE ZOOM EN LA IMG, LO MALO QUE NO SE VE LA IMG COMPLETA 
+                                CREO QUE AL COMENTAR FLEX, ESTE ATRIBUTO QUEDA SIN SENTIDO*/
+}
+
+.texto{
+    flex: 50%;
+    padding: 8rem 8rem;
+    background-color: #027bc0;
+    color: white;
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+.texto p {
+    width: 50%;
+    line-height: 2.5rem;
+}
+
