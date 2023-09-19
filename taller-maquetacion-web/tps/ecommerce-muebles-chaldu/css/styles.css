@@ -1,14 +1,7 @@
 @import url(../../../css/globales.css);
 
-hr {
-    margin: 0;
-    border: .1rem solid rgb(172, 166, 166);
-}
 
-a {
-    text-decoration: none;
-    color: rgb(78, 78, 78);
-}
+
 
 .main-title {
     text-align: center;
@@ -82,7 +75,6 @@ a {
     padding: 2.5rem;
     text-align: center;
     font-size: 1.6rem;
-    color: black;
     border-bottom-right-radius: 1.5rem;
 }
 

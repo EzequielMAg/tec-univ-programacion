@@ -1,0 +1,41 @@
+/* #region ---------------- CENTRAR TEXTO ---------------- */
+/*  Todo lo que este en un <h_> o en un <p>, etc, se va a centrar con un "text-aling: center"
+    PERO estre atributo no solo centra el texto, VA A CENTRAR EL CONTENIDO DE CUALQUIER ELEMENTO(? 
+    falta probarlo, pero al menos si me centro las imagenes que tenia en mis DIVS!! LOQUISIMO!!*/
+h1, div {
+    text-align: center;
+    color: crimson;
+} 
+/* #endregion */
+
+/* div {
+    border: 1px solid red;
+} */
+
+/* #region ---------------- CENTRAR IMAGENES ---------------- */
+/* Las imagenes eran GIGANTES!!!! 
+   Asi que primero que nada las achicamos :v
+   Digo primero que nada, y fue lo ultimo que hice lpm jajaj es tarde y estoy quemado  */
+
+img {
+    width: 40rem;
+}
+/* #region DE ESTA FORMA COMPROBE QUE NO TIENEN DIFERENCIAS WIDTH Y MAS-WIDTH, al menos con un valor en % */
+/* .img1 {
+    width: 40rem;
+}
+
+.img2 {
+    max-width: 40rem;
+} */
+/* #endregion */
+
+/*  Si a partir de aca, para abajo, comento TODO, igualmente voy a tener mis imagenes centradas, 
+    ya que tengo el selector de la linea 5 para un div, y tengo mis imagenes dentro de uno justamente */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+/* #endregion */
