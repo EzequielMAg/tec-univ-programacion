@@ -1,4 +1,4 @@
-@import url(../../../css/globales.css);
+@import url(../../../css/globals.css);
 
 .main-container {
     display: flex;
@@ -71,6 +71,14 @@
     margin-bottom: 1.8rem;
 }
 
+.moneda {
+    font-weight: bold;
+    font-size: 2.4rem;
+
+    margin-top: 1rem;
+    margin-bottom: 1.6rem;
+}
+
 .producto a {
     color: white;
     font-weight: bold;
@@ -81,13 +89,6 @@
     padding: .9rem 0;
     /* padding: 1.4rem; */
     /* border: 1px solid black; */
-}
-
-.moneda {
-    font-weight: bold;
-    font-size: 2.4rem;
-    margin-top: 1rem;
-    margin-bottom: 1.7rem;
 }
 
 .producto:nth-child(2) img,

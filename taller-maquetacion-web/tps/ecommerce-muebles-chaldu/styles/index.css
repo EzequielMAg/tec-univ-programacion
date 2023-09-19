@@ -1,54 +1,14 @@
-@import url(../../../css/globales.css);
 
+@import url(globals-of-this-page.css);
 
-
-
-.main-title {
-    text-align: center;
-    font-size: 3.8rem;
-    /* font-size: 2.6rem; */
-}
-
-.blue-text {
-    color: #0096ea;
-}
-
-.links-nav-bar {
-    display: flex;  /* Sin este atributo, el siguiente no funciona */
-    justify-content: center; /* Centra horizontalmente el contenido, los items <a> */
-
-    /* margin-top: .1rem;
-    margin-bottom: .2rem; */
-    margin-top: .16rem;
-    margin-bottom: .32rem;
-    /* gap: 1rem; */
-    font-size: 1.5rem;
-}
-
-.links-nav-bar a{
-    /* padding: 1rem 4rem; */
-    padding: 1.6rem 6.4rem;
-}
-
-.links-nav-bar a:hover {
-    background-color: #1185d3;
-    color: white;
-    /* background-color: #e0e0e0; */
-    /* color: white; */
-}
-
-.links-nav-bar a:active {
-    background-color: #67acda;
-    color: white;
-    /* background-color: #b5daf8; */
-}
-
+/*  Esta selector trabaja sobre un elemento que esta dentro del header, para tal, no es comun a las distintas 
+    paginas secundarias, por eso se quedo en este archivo css y no se fue a globals-of-this-page*/
 .img-hero {
     width: 100%;
     height: auto;
 }
 
-/* --------------------------------------------------------------------------------------------------------- */
+/* -----------------------------------  SECTION - CATEGORIAS DE PRODUCTOS  ----------------------------------- */
 .title-categ {
     text-align: center;
     font-size: 3.5rem;
@@ -63,7 +23,8 @@
 .categ-product {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */ /* Este lo comente, por que voy a centrar la palabra del boton en la linea 82. Una clase mas especifica */
+    /* align-items: center; */ /* Este lo comente, por que voy a centrar la palabra del boton en la linea 82. 
+                                  Una clase mas especifica */
 }
 
 .categ-product img {
@@ -83,12 +44,13 @@
     color: white;
     transition: all .5s ease; /* Le da un efecto de delay cuando se pasa el mouse entre los botones */
 
-}/* ----------------------------------------------------------------------------------------------------- */
+}
+
+/* -----------------------------  SECTION - SOBRE NOSOTROS  ----------------------------- */
 .container-about-us {
     display: flex;
     justify-content: center;
 }
-
 
 .container-about-us img { /* Funciona para cuando se hace zoom, hace que se mantenga en todo el anchjo de la pantalla */
     width: 75%;
@@ -112,16 +74,4 @@
     width: 60%;
     line-height: 2.5rem;
     text-align: justify;
-
 }
-
-
-
-
-
-
-
-
-
-
-

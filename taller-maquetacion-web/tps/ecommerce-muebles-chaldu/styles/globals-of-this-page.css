@@ -1,0 +1,45 @@
+@import url(../../../css/globals.css);
+
+/* #region HEADER */
+.main-title {
+    text-align: center;
+    font-size: 3.8rem;
+    /* font-size: 2.6rem; */
+}
+
+.blue-text {
+    color: #0096ea;
+}
+
+.links-nav-bar {
+    display: flex;  /* Sin este atributo, el siguiente no funciona */
+    justify-content: center; /* Centra horizontalmente el contenido, los items <a> */
+
+    /* margin-top: .1rem;
+    margin-bottom: .2rem; */
+    margin-top: .16rem;
+    margin-bottom: .32rem;
+    /* gap: 1rem; */
+    font-size: 1.5rem;
+}
+
+.links-nav-bar a{
+    /* padding: 1rem 4rem; */
+    padding: 1.6rem 6.4rem;
+}
+
+.links-nav-bar a:hover {
+    background-color: #1185d3;
+    color: white;
+    /* background-color: #e0e0e0; */
+    /* color: white; */
+}
+
+.links-nav-bar a:active {
+    background-color: #67acda;
+    color: white;
+    /* background-color: #b5daf8; */
+}
+/* #endregion */
+
+
