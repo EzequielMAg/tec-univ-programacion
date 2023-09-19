@@ -1,71 +1,104 @@
-html{
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
+@import url(../../../css/globales.css);
 
-*,*:after,*:before{
-    box-sizing: inherit;
-}
-
-body{
-    margin: 0;
-}
-
-
-.contenedor-main{
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.lista-productos{
+.products-list {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: .5rem;
-    width: 80%;
-    /* column-gap: 2rem; */
-    /* background-color: aqua; */
+    width: 70%;
 }
 
-.producto{
-    background-color: aqua;
+.producto {
+    background-color: #027bc0;
 }
 
-.producto:nth-child(1)
-{
-    /* background-color: blue; */
+.producto div {
+
+    width: 85%;     /* Achico el contenedor actual respecto al inmediato superior */
+    margin: 0 auto;   /* Centreo el contenedor actual resp. al inmediato superior */
+    
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    line-height: 2.6rem;
+}
+
+/* #region NTH-CHILD SELECTORS  */
+.producto:nth-child(1) {
     grid-column: 1/7;
+
     display: grid;
     grid-template-columns: 3fr 1fr;
-
 }
 
-.producto:nth-child(2)
-{
-    /* background-color: blue; */
+.producto:nth-child(2) {
     grid-column: 1/4;
 }
 
-.producto:nth-child(3)
-{
-    /* background-color: blue; */
+.producto:nth-child(3) {
     grid-column: 4/7;
 }
 
-.producto:nth-child(4)
-{
-    /* background-color: blue; */
+.producto:nth-child(4) {
     grid-column: 1/3;
 }
 
-.producto:nth-child(5)
-{
-    /* background-color: blue; */
+.producto:nth-child(5) {
     grid-column: 3/5;
 }
 
-.producto:nth-child(6)
-{
-    /* background-color: blue; */
+.producto:nth-child(6) {
     grid-column: 5/7;
+}   /* #endregion */
+
+
+/* Para que la img ocupe el 100% de ancho de su contenedor */
+.producto img {
+    width: 100%;
+}
+
+.main-container h2 {
+    font-size: 3.1rem;
+}
+
+.producto h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.8rem;
+}
+
+.producto a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    background-color: #8dbc00;
+    display: block;
+    padding: .9rem 0;
+    /* padding: 1.4rem; */
+    /* border: 1px solid black; */
+}
+
+.moneda {
+    font-weight: bold;
+    font-size: 2.4rem;
+    margin-top: 1rem;
+    margin-bottom: 1.7rem;
+}
+
+.producto:nth-child(2) img,
+.producto:nth-child(3) img
+{
+    height: 50%;
+}
+
+.producto:nth-child(4) img,
+.producto:nth-child(5) img,
+.producto:nth-child(6) img
+{
+    height: 45%;
 }

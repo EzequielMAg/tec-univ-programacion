@@ -13,3 +13,13 @@ body {
     margin: 0;
     font-family: 'Raleway', sans-serif; /* Fuente de google fonts */
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    margin: 0;
+    /* border: .1rem solid rgb(172, 166, 166); */
+}
