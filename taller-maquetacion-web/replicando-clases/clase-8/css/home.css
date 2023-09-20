@@ -1,20 +1,73 @@
-.contenedor-central {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+@import url(../../../css/globals.css);
 
 .lista-articulos {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    /* width: 70%; */
 }
 
 .articulo{
-    flex-basis: 33.3%;
+    /* flex-basis: 33.3%; */
+    /* flex-basis: calc(33.33% - 1rem); */
+    /* flex: calc(33.33% - 1rem); */
     
+    flex: 0 0 calc(50% - 1rem);
+    /* flex: 1 1 calc(33.33% - 1rem); */
+    
+    background-color: aqua;
 }
 
+/* .articulo:nth-child(1) {
+    background-color: blue;
+    flex: 2;
+    flex-basis: calc(33.3% - 1rem);
+}
 
+.articulo:nth-child(2) {
+    background-color: rgb(21, 255, 0);
+    flex: 1;
+    flex-basis: calc(33.3% - 1rem);
+}
 
+.articulo:nth-child(3) {
+    background-color: rgb(235, 43, 43);
+    flex: 1;
+    flex-basis: calc(33.33% - 1rem);
+} */
 
+.articulo:hover {
+    box-shadow: var(--shadow-elevation-medium);
+    transition: all .3s ease;
+    color: var(--color-fuente);
+}
+
+:root {
+    --shadow-color: 239deg 82% 22%;
+    --shadow-elevation-low:
+      0px 1px 1.1px hsl(var(--shadow-color) / 0.34),
+      0px 1.7px 1.9px -1.2px hsl(var(--shadow-color) / 0.34),
+      0px 4px 4.5px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium:
+      0px 1px 1.1px hsl(var(--shadow-color) / 0.29),
+      0px 2.6px 2.9px -0.6px hsl(var(--shadow-color) / 0.29),
+      0px 5.2px 5.9px -1.2px hsl(var(--shadow-color) / 0.29),
+      -0.1px 10.4px 11.7px -1.9px hsl(var(--shadow-color) / 0.29),
+      -0.1px 20px 22.5px -2.5px hsl(var(--shadow-color) / 0.29);
+    --shadow-elevation-high:
+      0px 1px 1.1px hsl(var(--shadow-color) / 0.27),
+      0px 4.8px 5.4px -0.3px hsl(var(--shadow-color) / 0.27),
+      0px 8.5px 9.6px -0.6px hsl(var(--shadow-color) / 0.27),
+      -0.1px 12.9px 14.5px -0.8px hsl(var(--shadow-color) / 0.27),
+      -0.1px 18.9px 21.3px -1.1px hsl(var(--shadow-color) / 0.27),
+      -0.1px 27.1px 30.5px -1.4px hsl(var(--shadow-color) / 0.27),
+      -0.2px 38.6px 43.4px -1.7px hsl(var(--shadow-color) / 0.27),
+      -0.3px 54px 60.8px -1.9px hsl(var(--shadow-color) / 0.27),
+      -0.4px 74.2px 83.5px -2.2px hsl(var(--shadow-color) / 0.27),
+      -0.5px 100px 112.5px -2.5px hsl(var(--shadow-color) / 0.27);
+      
+    --color-fuente: rgb(209, 20, 20);
+  }
 
 
