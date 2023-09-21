@@ -15,22 +15,15 @@
 .link-list {
     display: flex;
     flex-direction: column;
+    font-size: 1.5rem;
     line-height: 2.2rem;
-}
 
-.grouped-links div {
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 .grouped-links h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-}
-
-.grouped-links a {
-    font-size: 1.5rem;
 }
 
 .main-footer-container p {
