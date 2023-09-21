@@ -1,10 +1,16 @@
 @import url(globals-of-this-page.css);
 
+.product-us {
+    margin-top: 1rem;
+}
+
 .products-list {
     display: grid;
     width: 70%;
     grid-template-columns: repeat(6, 1fr);
     gap: .8rem;
+
+    margin-bottom: 7rem;
 }
 
 .product {

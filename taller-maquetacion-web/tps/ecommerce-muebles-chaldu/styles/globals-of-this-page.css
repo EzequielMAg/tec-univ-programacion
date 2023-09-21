@@ -43,4 +43,40 @@
 }
 /* #endregion */
 
+/* #endregion FOOTER */
+.grouped-links {
+    display: flex;
+    gap: 13rem;
+    /* border: 1px solid red; */
+    margin-bottom: 2rem;
+}
+
+.link-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    /* border: 1px solid red; */
+}
+
+.grouped-links h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.text-rights-reserved {
+    margin: 2rem 0;
+    /* border: 1px solid red; */
+}
+
+/* Esto es para centrar mejor la lista de enlaces central, con el msje debajo */
+.grouped-links div:nth-child(1) {
+    min-width: 15.4rem;
+    /* min-width: 13.4rem; */
+}
+
+footer {
+    background-color: rgb(216, 214, 214);
+}
+/* #endregion */
 
