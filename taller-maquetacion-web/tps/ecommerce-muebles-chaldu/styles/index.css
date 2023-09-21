@@ -1,5 +1,5 @@
 
-@import url(globals-of-this-page.css);
+@import url(./globals-of-this-page.css);
 
 /*  Esta selector trabaja sobre un elemento que esta dentro del header, para tal, no es comun a las distintas 
     paginas secundarias, por eso se quedo en este archivo css y no se fue a globals-of-this-page*/

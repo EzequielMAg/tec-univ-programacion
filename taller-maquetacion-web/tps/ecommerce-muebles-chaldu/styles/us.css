@@ -1,0 +1,30 @@
+@import url(./globals-of-this-page.css);
+
+.about-us {
+    margin-top: 1rem;
+    margin-bottom: 9rem;
+}
+
+.about-us h2 {
+    font-size: 3.2rem;
+}
+
+.about-us img {
+    width: 150rem;
+}
+
+.row-container {
+    display: flex;
+    width: 65%;
+}
+
+.col-container {
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.col-container p {
+    width: 90%;
+}
