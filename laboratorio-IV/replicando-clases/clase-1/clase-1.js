@@ -1,4 +1,4 @@
-/* console.log("Hola mundo");
+ /* console.log("Hola mundo");
 
 let numero = 20;
 console.log(typeof numero); //number */
@@ -34,7 +34,7 @@ console.log(Number.isInteger(7.7)); //false
 console.log("Numero entero seguro? -> " + Number.isSafeInteger(9_007_199_254_740_991)); */ //true //valor limite, cambiar el ultimo 1, por 2, da false
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SIMBOLOS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SIMBOLOS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 /* let simbolo = Symbol("Soy un simbolo"); //Creo un simbolo
 let simbolo2 = Symbol("Soy un simbolo");
 console.log(simbolo == simbolo2); //false
@@ -83,8 +83,8 @@ texto = "Hola " + "soy " + "Ezequiel " + (2 + 3); //De esta forma priorizo la su
 console.log(texto); //Hola soy Ezequiel 5
 
 
-//Templates literales(?)
-nombre = "Ezequiel";
+//*Templates literales(?)
+let nombre = "Ezequiel";
 texto = "Hola soy " + nombre;
 console.log(texto);
 
@@ -97,7 +97,7 @@ console.log(texto);
 console.log(isNaN(5)); */
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 /* let userImput = prompt("Ingrese un numero: "); //Muestra una ventana para ingresar algun valor/dato con el msje pasado por parametro
 console.log(typeof userImput); // String
 
@@ -109,11 +109,11 @@ let result = userImput * 3;
 alert("El resultado es: " + result); */
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  UNICODE  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  UNICODE  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 /* console.log("\u{0096}"); // z
 console.log("\u{26a1}"); // z */
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  STRINGS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  STRINGS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 /* let cadena = "Cadena de prueba";
 console.log(cadena.concat(" --------")); //Retorna la cadena concatenada con lo pasado por parametro
 console.log(cadena); // Aca se puede ver que luego de usar el metodo anterior, NO se modifico el String original
@@ -131,23 +131,24 @@ console.log(cadena.toUpperCase()); //Retorna la cadena toda transformada en MAYU
 console.log(cadena.indexOf("de")); //Retorna la pos (1ra aparicion) desde donde arranca la cadena pasada x param. Si hay +de1, retorna el 1ro
 console.log(cadena.indexOf("!")); //Si no la encuentra retorna -1.
 
-console.log(cadena.lastIndexOf("a")); //Retorna la posicion (de la ultima aparicion) desde donde arranca la cadena pasada por parametro
-
 console.log(cadena.length); //Retorna la longitud de la cadena
+console.log(cadena.lastIndexOf("a"));  //Retorna la posicion (de la ultima aparicion) desde donde arranca la cadena pasada por parametro
 
-console.log(cadena.replace("Ca", "??")); //Busca lo pasado en el primer parametro, y reemplaza esos caract. por el 2do parametro.
-                                         //Si no lo encuentra, retorna la cadena sin modificaciones. Y reemplaza solo la 1ra vez q encuentra.
+
+console.log(cadena.replace("Ca", "??")); //*Busca lo pasado en el primer parametro, y reemplaza esos caract. por el 2do parametro.
+                                         //*Si no lo encuentra, retorna la cadena sin modificaciones. Y reemplaza solo la 1ra vez q encuentra.
+console.log(cadena.replace("CA", "??")); //*aca compruebo q CASE SENSITIVE, y que retorna el string sin modificaciones
 
 let arreglo = cadena.split(" "); //Me separa la cadena segun lo pasado por parametro. Y retorna un arreglo de Strings con cada parte separada                                         
 console.log(arreglo);
 
-console.log(cadena.substring(0, 6)); //Recorta la cadena entre las posiciones pasadas por parametro y lo retorna
+console.log(cadena.substring(0, 8)); //Recorta la cadena entre las posiciones pasadas por parametro y lo retorna, sin incluir caracter limite.
 
-//DE TODOS LOS ANTERIORES METODOS, NINGUNO MODIFICA EL STRING ORIGINAL
-console.log("Cadena original -> " + cadena); */
+//*DE TODOS LOS ANTERIORES METODOS, NINGUNO MODIFICA EL STRING ORIGINAL
+console.log("Cadena original -> " + cadena);*/
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ARREGLOS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ARREGLOS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 let comidas = ["Pizza", "Hamburguesa", "Milanesa", "Pancho", "Ensalada", "Polenta"];
 console.log(comidas);   //muestra el arreglo de strings
 /* console.log(typeof comidas);    //es de tipo -> OBJECT
@@ -157,42 +158,43 @@ console.log(comidas.length); //longitud del arreglo -> 6
 
 console.log(comidas.indexOf("Pancho")); // posiciona de donde encuentra lo pasado x parametro -> 3
 
-// ----------- Agregando elementos -----------------------------------------------
+//* ----------- Agregando elementos -----------------------------------------------
 comidas.push("ñoquis"); //Agrega un elemento al final del arreglo
-comidas.push = "ASADO";
-comidas.unshift = "ASADO";
+comidas.push = "ASADO"; //Con CHATGPT aprendi que esto esta MAL, estariamos sobreescribiendo el metodo push, luego ya no podremos usarlo
+                        //para agregar nuevos valores al arreglo, ya que le estamos asignando un String.
+comidas.unshift = "ASADO"; //Idem
 comidas.unshift("Asado");   //Agrega un elemento al principio del arreglo
 console.log(comidas); */
 
-// ----------- Eliminando elementos -----------------------------------------------
+//* ----------- Eliminando elementos -----------------------------------------------
 /* comidas.pop();  //Elimino el ultimo elemento
 console.log(comidas)
 
 comidas.shift();    //Elimino el primer elemento
 console.log(comidas) */
 
-// ----------- Ordenamiento del arreglo --------------------------------------------
+//* ----------- Ordenamiento del arreglo --------------------------------------------
 /* comidas.sort(); //Ordena alfabeticamente
 console. log();
 
 comidas.reverse(); //Ordena alfabeticamente pero invertido
 console. log(); */
 
-// ----------- Eliminar elementos segun un indice ----------------------------------
-/* comidas.splice(2);  //Elimina desde el elemento de indice 4 inclusive y en adelante
+//* ----------- Eliminar elementos segun un indice ----------------------------------
+/* comidas.splice(2);  //Elimina desde el elemento de indice 2 inclusive y en adelante
 console.log(comidas);
  */
-/* comidas.splice(2, 3); //Elimina desde el indice pasado como 1er parametro, y cant de elementos segun el 2do parametro
+/* comidas.splice(2, 3); //Elimina desde el indice pasado como 1er parametro, y cant total de elementos segun el 2do parametro
 console.log(comidas); */
 
-// ----------- Retorna una string con todos los elementos de un arreglo ------------
+//* ----------- Retorna una string con todos los elementos de un arreglo ------------
 /* let cadena = comidas.join("; "); //Separa cada elemento con lo pasado por parametro. Metodo contrario a split de un String
 console.log(cadena);
 
 let cadena2 = comidas.join("\n");
 console.log(cadena2); */
 
-// ----------- Recorrer un arreglo -------------------------------------------------
+//* ----------- Recorrer un arreglo -------------------------------------------------
 /* for(const comida of comidas) { //Es igual que un foreach en java
     console.log(comida); // Se usa const en lugar de let porque no se va a modificar el valor de la variable.
 }   //En cada iteracion no se asigna un nuevo valor, sino que se redeclara.
@@ -207,7 +209,7 @@ for(const i in comidas) {
 
 //console.log(comidas[2]); //Asi muestro un elemento particular segun el indice por la consola.. Como siempre
 
-// ----------- Destructuracion de un arreglo -------------------------------------------------
+//! ----------- Destructuracion de un arreglo -------------------------------------------------
 /* let comidas2 = ["Pizza", "Hamburguesa", "Milanesa"];
 
 const [a,b,c] = comidas2;
@@ -241,7 +243,7 @@ console.log(z);
 console.log(resto); */
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SET  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SET  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //Los tipos de datos set no guardan datos repetidos, Guardan estructuras de datos de valores unicos.
 /* const set = new Set([1, 2, "hola", "chau", true, 2, "hola", "moto", true, false]);
 
@@ -261,17 +263,17 @@ arreglo.push("hola");
 console.log(arreglo); */
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  MAP  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-/* //Creo un map
+//! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  MAP  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* //*Creo un map
 const map = new Map();
 
-//Asigno elementos al map -> clave-valor
+//*Asigno elementos al map -> clave-valor
 map.set("Nombre", "Nahuel");
 map.set("Nombre1", "Ezequiel");
 map.set("Nombre", "Florencia"); //Si uso la misma llave para agregar un nuevo elemento, piso el valor anterior asociado a la misma llave
 map.set("Nombre2", "Adrian");
 
-//Muestro los elementos del map
+//*Muestro los elementos del map
 console.log(map.get("Nombre"));
 console.log(map.get("Nombre1"));
 console.log(map.get("Nombre"));
@@ -281,7 +283,7 @@ console.log(map.size); //Tamaño del map
 
 console.log(map.has("Nombre")); //Verifico si existe esa llave 
 
-//Pasar un map a un arreglo
+//*Pasar un map a un arreglo
 let mapFromArray = Array.from(map);
 console.log(mapFromArray);
 console.table(mapFromArray);

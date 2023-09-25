@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Guia JavaScript</title>
+</head>
+
+<body>
+    <!-- Todos los elementos del DOM son objetos, teniendo atributos y métodos -->
+
+    <h1 id="cabecera" class="rojo">Ejemplo DOM con JavaScript</h1>
+    <h2 class="subtitulo">Soy un subtitulo modificable</h2>
+
+    <p id="parrafo1" class="rojo">Saludos!</p>
+    <p id="parrafo2">Otro parrafo</p>
+
+    <button onclick="cambiarColor()">Color Párrafo</button>
+    <br><br>
+
+    <form id="formulario">
+        <fieldset style="width: 25%;">
+
+            Nombre: <input class="inputName" type="text" name="nombre">
+            <br><br>
+            Apellido: <input type="number" name="apellido">
+            <br><br>
+
+        </fieldset>
+    </form>
+
+    <!-- Se puede indicar el formulario al que pertenece un input con el atributo form -->
+    <input type="submit" form="formulario">
+
+    <!-- Con los () se manda a llamar una función de JavaScript -->
+    <button onclick="mostrarValores()">Mostrar Valores</button>
+
+    <div id="valoresForm"></div>
+
+    <img id="imagen" src="http://globalmentoring.com.mx/imagenes/javascript.png">
+    <br><br>
+    <button onclick="cambiarImagen()">Cambiar Imagen</button>
+    <br><br>
+
+    <input id="inputPrueba">
+    <br /><br />
+    <input id="inputFile">
+    <br /><br />
+
+    <div class="contenedor"></div>
+    <br /><br />
+
+    <div class="contNodos">
+        <p>Nodo 1</p>
+        <p>Nodo 2</p>
+        <p>Nodo 3</p>
+    </div>
+
+    <script src="./DOM.js"></script>
+</body>
+
+</html>

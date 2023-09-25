@@ -39,3 +39,25 @@ img {
     gap: .5rem;
 }
 /* #endregion */
+
+.color-comentario {
+    /* color: #c7f5a6; */
+    color: #008000;
+    /* "color": "#98C379", ORIGINAL*/
+
+
+    /* "tag": "!", */
+    color: #FF2D00;
+
+    /* "tag": "?", */
+    color: #3498DB;
+
+    /* "tag": "//", */
+    color: #474747;
+    
+    /* "tag": "TODO:", */
+    color: #FF8C00;
+
+    /* "tag": "*", */
+    color: #008000,
+}

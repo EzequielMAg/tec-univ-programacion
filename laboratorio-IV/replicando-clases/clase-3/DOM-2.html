@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+     <!-- onload es un evento que se ejecuta cuando se carga la página web. Es un evento que sucede mientras carga -->
+     <!-- <body onload="entrar()"> -->
+     <body>
+
+        <!--- this hace referencia al objeto HMTL de tipo h1, es decir, una referencia a si mismo-->
+        <!--- onmouseover es un evento que se ejecuta cuando el mouse pasa por encima del elemento-->
+        <!--- onmouseout es un evento que se ejecuta cuando el mouse sale del elemento-->
+        <!-- <h1 onclick="cambiarTitulo(this)" onmouseover="rojo(this)" onmouseout="azul(this)">Bienvenido a la otra página</h1> -->
+        <h1 onclick="cambiarTitulo(this)" onmouseover="rojo(this)" onmouseout="azul(this)">Bienvenido a la otra página</h1>
+
+        <br>
+
+        <p id="parrafo">Esta es la otra página</p>
+
+        <br/>
+
+        <!--- onmousedown es un evento que se ejecuta cuando se presiona el botón del mouse-->
+        <!--- onmouseup es un evento que se ejecuta cuando se suelta el botón del mouse-->
+        <div id="cookies" onmousedown="azul(this)" onmouseup="rojo(this)" ></div>
+        <br/>
+
+        <!-- Con onchange se monitorea el evento de cambio en el elemento. Si hay cambio ejecuta la función -->
+        <!-- Con onfocus se monitorea el evento de enfoque en el elemento. Si hay enfoque ejecuta la función -->
+        <!-- Con onblur se monitorea el evento de desenfoque en el elemento. Si hay desenfoque ejecuta la función -->
+        Comida favorita: <input type="text" id="comida" onchange="convertir(this)" onfocus="cambiar(this)" onblur="regresar(this)">
+        <br/>
+        Pelicula favorita: <input type="text" id="pelicula">
+        <br/><br/>
+        <form id="formulario">
+            Palabra al azar: <input type="text" id="palabra">
+            <br/>
+            Numero al azar: <input type="number" id="numero">
+            <br/><br/>
+        </form>
+
+        <button onclick="youtube()">Ir a yotube</button>
+        <br/><br/>
+
+        <button onclick="imprimir()">Imprimir la página</button>
+        <br/><br/>
+
+        <input type="text" id="texto" placeholder="Ingrese una tecla y mire la consola">
+
+        <div class="copia"></div>
+
+        <div class="copia"></div>
+
+        <div class="copia"></div>
+
+        <h3>Lo que estoy seleccionando</h3>
+        <h4 class="seleccion" style="color:brown"></h4>
+
+
+        <script src="./DOM.js"></script>
+</body>
+
+</html>
