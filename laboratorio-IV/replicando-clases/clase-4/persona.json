@@ -6,8 +6,8 @@
         "calle": "Calle falsa 123",
         "ciudad": "Mar del Plata"
     },
-    "telefonos":{
-        "telefono1": 2254411162,
-        "telefono2": 2254403462
-    }
+    "telefonos": [
+        2254411162,
+        2254403462
+    ]
 }

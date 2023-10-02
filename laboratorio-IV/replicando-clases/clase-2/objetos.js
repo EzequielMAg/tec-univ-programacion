@@ -81,7 +81,7 @@ function Gato(nombre, color) {
     this.color = color;
 }
 
-//* De esta forma dijo que gato HEREDA de ANIMAL ----------------------
+//* De esta forma digo que gato HEREDA de ANIMAL ----------------------
 Gato.prototype = Object.create(Animal.prototype);
 
 Gato.prototype.maullar = function() {
