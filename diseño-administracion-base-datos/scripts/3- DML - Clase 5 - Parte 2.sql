@@ -64,10 +64,32 @@ SET idDepartamento = NULL
 WHERE idDepartamento = 4;
 
 
+# --------------------  ORDENANDO LOS DATOS DEVUELTOS POR SELECT  ------------- 
+SELECT * FROM empleado 
+WHERE sueldo >= 0
+ORDER BY nombre;	-- Me lo ordena segun este atributo y por DEFAULT es ASC -> ascendente
+
+SELECT * FROM empleado 
+WHERE sueldo >= 0
+ORDER BY nombre DESC;
+
+SELECT * FROM empleado 
+WHERE sueldo >= 0
+ORDER BY nombre ASC;	
+
+-- Si el nombre se repite, ordena el apellido en forma ASC -> ascendente
+SELECT * FROM empleado 
+WHERE sueldo >= 0
+ORDER BY nombre, apellido ASC;	-- Si le saco el ASC es lo mismo, porque es el valor por default	
+
+SELECT * FROM empleado 
+WHERE sueldo >= 0
+ORDER BY nombre ASC, apellido DESC;	
 
 
-
-
+# Tambien puedo poner un limite a la cant de registros que quiero ver, con LIMIT
+SELECT * FROM empleado 
+LIMIT 2;	-- Va desde el primero, al ultimo..
 
 
 
