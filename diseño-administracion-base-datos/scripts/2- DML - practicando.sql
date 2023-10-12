@@ -1,4 +1,3 @@
-/* ---------  PRACTICANDO DESDE EL DOCUMENTO: Introduccion a MySQL	 */ 
 
 # El comando describe seguido del nombre de una tabla, nos permite ver la estructura completa de una tabla.
 DESCRIBE empleado;
@@ -107,7 +106,8 @@ ALTER TABLE modulo_alumno
 ADD CONSTRAINT fk_idAlumno FOREIGN KEY (idAlumno) REFERENCES Alumno(numeroLegajo), 
 ADD CONSTRAINT fk_idModulo FOREIGN KEY (idModulo) REFERENCES Modulo(codigo);
 
-# ---------practicando mas......
+
+# ---------  practicando mas......
 ALTER TABLE Persona  
 ADD COLUMN edad int;
 

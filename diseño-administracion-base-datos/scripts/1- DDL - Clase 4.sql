@@ -10,12 +10,14 @@ USE jugos;
 
 
 # -----------  ELIMINANDO OBJETOS  -------------------------
+-- Elimino una BD
 DROP SCHEMA utn;
 DROP DATABASE UTN;	# MySQL NO es CASE SENSITIVE 
 DROP DATABASE `utn-com5`;
 
 -- Elimino una columna
-ALTER TABLE empleado DROP COLUMN  domicilio;
+ALTER TABLE empleado DROP COLUMN domicilio;
+ALTER TABLE empleado DROP COLUMN idDepartamento;
 
 -- Elimino una tabla
 DROP TABLE departamento;
@@ -44,10 +46,14 @@ CREATE TABLE departamento
 # -----------  MODIFICANDO UNA TABLA  ----------------------
 -- Agregando una columna
 ALTER TABLE empleado 
-ADD COLUMN idDepartamento int;
+ADD COLUMN apellido varchar(50);
 
 ALTER TABLE empleado 
 ADD COLUMN domicilio varchar(50);
+
+ALTER TABLE empleado 
+ADD COLUMN idDepartamento int;
+
 
 -- Agregando una FK (foreing key)
 ALTER TABLE empleado 
@@ -58,7 +64,7 @@ ADD CONSTRAINT fkDep FOREIGN KEY(idDepartamento) REFERENCES departamento(idDepar
 ALTER TABLE empleado 
 ADD FOREIGN KEY(idDepartamento) REFERENCES departamento(idDepartamento);
 
--- Agregando un atributo unico (UQ, unique)
+-- Transformando un atributo que ya existe a tipo unico (UQ, unique)
 ALTER TABLE departamento 
 ADD CONSTRAINT uqNombre UNIQUE(nombre);
 
@@ -66,9 +72,15 @@ ADD CONSTRAINT uqNombre UNIQUE(nombre);
 ALTER TABLE empleado 
 MODIFY COLUMN nombre varchar(50) NOT NULL;
 
+ALTER TABLE empleado 
+MODIFY COLUMN apellido  varchar(50) NOT NULL;
+
 ALTER TABLE empleado
 MODIFY COLUMN domicilio varchar(50) NOT NULL;
- 
+
+ALTER TABLE Departamento 
+MODIFY COLUMN nombre varchar(50) NOT NULL;
+
 
 # NOTA: puedo anidar varios ADD en el mismo ALTER, ejemplo: ----------------------------------------
 ALTER TABLE empleado 
@@ -80,14 +92,16 @@ ADD CONSTRAINT uqNombre UNIQUE(nombre);
 # 		escribir todas las restricciones
 CREATE TABLE proveedor 
 (
-	idProveedor int  AUTO_INCREMENT PRIMARY KEY
+	idProveedor int  AUTO_INCREMENT PRIMARY KEY,
 	nombre varchar(50),
 	tipoDocumento tinyint,
 	numeroDocumento char(8),
 
 	-- De esta forma agrupamos dos atributos para que la combinacion de ambos atributos, sea unica
-	CONSTRAINT uqDocumento UNIQUE(tipoDocumento, numeroDocumento);
+	CONSTRAINT uqDocumento UNIQUE(tipoDocumento, numeroDocumento)
 );
+
+DROP TABLE proveedor;
 
 
 # ----------------------------------------------------------------------------------------------------------------
