@@ -186,6 +186,10 @@ SELECT * FROM Empleado
 ORDER BY codigo
 LIMIT 5 OFFSET 2; -- Le digo "mostrame 5 registros, desde el registro tercero (indice 2), ya que el primer reg tiene indice 0"
 
+-- Otra forma
+SELECT * FROM Empleado
+ORDER BY codigo
+LIMIT 2, 5; 
 
 # 21.Devuelve una lista con el nombre de los departamentos y el presupuesto, de aquellos que tienen un presupuesto 
 # mayor o igual a 150000 euros.

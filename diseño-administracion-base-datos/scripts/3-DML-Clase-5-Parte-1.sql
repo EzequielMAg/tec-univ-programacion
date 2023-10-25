@@ -124,6 +124,8 @@ SELECT concat(nombre, " " , apellido) AS "Nombre y Apellido", sueldo
 FROM empleado 
 WHERE apellido LIKE "p%";	
 
+SELECT * FROM Empleado;
+
 -- Los que tengan un apellido que empieza con 'm' o 'a'
 SELECT concat(nombre, " " , apellido) AS "Nombre y Apellido", sueldo 
 FROM empleado 
