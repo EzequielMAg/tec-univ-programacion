@@ -1,0 +1,37 @@
+<hr>
+<h4 class="mt-5">Agregar personaje</h4>
+
+<form class="row mb-5" (ngSubmit)="emitCharacter()">
+
+  <input type="text"
+  name="name"
+  placeholder="Nombre completo"
+  class="form-control mb-2"
+  [(ngModel)]="character.full_name">
+
+  <input type="text"
+  name="age"
+  placeholder="Edad"
+  class="form-control mb-2"
+  [(ngModel)]="character.age">
+
+  <input type="text"
+  name="about"
+  placeholder="Descripción"
+  class="form-control mb-2"
+  [(ngModel)]="character.about">
+
+  <!-- (click)="emitCharacter()" Eliminado del button, ya que debemos usar ngSubmit en el FORM -->
+  <button type="submit" class="btn btn-success">
+    Agregar
+  </button>
+
+</form>
+
+<!--* Lo siguiente es para ver lo que se esta ingresando en los input y como funciona el ngModel
+<!--* aplicando el concepto de two way data binding.. -->
+<pre> {{ character | json}} </pre>
+
+<!--* El caracter | es un 'pipe', se concoe como caracter de tuberia, un pipe lo que hace es transformar
+<!--* lo que se va a mostrar por pantalla, pero sin modificar el valor de la variable/objeto original.
+<!--* En este caso lo que hace, es mostrarlo en forma JSON -->

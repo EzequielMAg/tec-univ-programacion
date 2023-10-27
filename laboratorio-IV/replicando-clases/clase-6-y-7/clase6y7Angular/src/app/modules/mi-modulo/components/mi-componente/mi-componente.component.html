@@ -1,0 +1,85 @@
+<!--* ACA ESTOY PRACTICANDO @Input() - Le paso un arreglo desde el componente padre,
+<!--* y se guarda en otro arreglo, del componente hijo -->
+<!-- <shared-navbar
+  [arregloNavBar]="arregloParaNavbar"
+></shared-navbar>
+
+<ng-container *ngIf="flag">
+ <landing-page></landing-page>
+</ng-container>
+
+<button
+  class="btn btn-danger mx-5"
+  *ngIf="flag"
+  (click)="desaparecerLandingPage()"
+  >BORRAR LANDING PAGE</button>
+
+  <button
+  class="btn btn-success mx-5"
+  *ngIf="!flag"
+  (click)="aparecerLandingPage()"
+>CREAR LANDING PAGE</button>
+
+<div>
+  <ng-container *ngTemplateOutlet="bloqueCodigo"></ng-container>
+</div> -->
+
+
+<!--* ACA ESTOY PRACTICANDO @Input() y @Output() -->
+<!-- <shared-generic-section
+[variableDelComponenteHijo]="datoDelPadre1"
+[variableDelComponenteHijo2]="datoDelPadre2"
+
+(emitidor)="metodoRecibidor($event)"
+></shared-generic-section>
+
+<p> →→→ || {{ atributoRecibidor }} || ←←← </p> -->
+
+<div class="row">
+  <div class="col-8 mx-3">
+    <characters-table
+      [arregloCharacters]="characters"
+      (variableEmitidora)="idEmitido($event)">
+    </characters-table>
+  </div>
+
+  <div class="col">
+    <add-character (newCharacter)="nuevoPersonajeEmitido($event)"></add-character>
+  </div>
+</div>
+
+<!--* ACA ESTOY PRACTICANDO @Input()-->
+<!-- <shared-footer
+[atributoFooter1] = "arregloDelPadre[0]"
+[atributoFooter2]="arregloDelPadre[1]"
+></shared-footer>
+
+<ng-template #bloqueCodigo>
+
+  <table class="mx-5 mt-5 table">
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Favorite Color</th>
+    </tr>
+
+    <tr>
+      <td>Jim</td>
+      <td>0001</td>
+      <td>Blue</td>
+    </tr>
+
+    <tr>
+      <td>Ezequiel</td>
+      <td>0002</td>
+      <td>Red</td>
+    </tr>
+
+    <tr>
+      <td>Florencia</td>
+      <td>0003</td>
+      <td>Pink</td>
+    </tr>
+  </table>
+
+</ng-template> -->

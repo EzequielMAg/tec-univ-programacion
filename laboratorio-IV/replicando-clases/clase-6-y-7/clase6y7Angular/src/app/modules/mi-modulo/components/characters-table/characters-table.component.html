@@ -1,0 +1,41 @@
+<hr>
+<h4 class="mt-5">Tabla de personajes</h4>
+<table class="table">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">#</th>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Detalle del personaje</th>
+      <th scope="col">Eliminar</th>
+      <!-- <th scope="col">-</th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let character of arregloCharacters;
+      let i = index
+      let isOdd = odd"
+      [ngClass]=" {'table-success': isOdd}">
+
+      <th scope="row"> {{ i + 1 }} </th>
+      <td> {{ character.full_name }} </td>
+      <td> {{ character.age }} </td>
+      <td> {{ character.about }} </td>
+      <td>
+        <button
+          (click)="emitirIdPersonajeAEliminar( character.id )"
+          class="btn btn-danger mx-2">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+      </td>
+      <!-- <td> {{ isOdd }} </td> -->
+    </tr>
+
+  </tbody>
+</table>
+
+<ul class="list-group">
+  <li *ngIf="arregloCharacters.length === 0" class="list-group-item text-center bg-danger text-light"> <strong>¡LISTA VACIA!</strong></li>
+</ul>
+
