@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Character } from 'src/app/core/character.interface';
+import { Character } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'characters-table',

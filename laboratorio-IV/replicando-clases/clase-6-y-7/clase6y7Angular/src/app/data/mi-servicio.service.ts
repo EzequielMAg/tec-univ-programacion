@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Character } from 'src/app/core/character.interface';
+import { Character } from 'src/app/core/interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class MiServicioService {

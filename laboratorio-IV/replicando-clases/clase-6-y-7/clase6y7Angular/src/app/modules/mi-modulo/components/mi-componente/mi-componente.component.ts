@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MiServicioService } from '../../../../data/mi-servicio.service';
-import { Character } from '../../../../core/character.interface';
+import { Character } from '../../../../core/interfaces';
 
 @Component({
   selector: 'app-mi-componente',
