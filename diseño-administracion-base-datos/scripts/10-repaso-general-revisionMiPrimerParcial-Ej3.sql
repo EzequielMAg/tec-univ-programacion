@@ -133,30 +133,81 @@ INNER JOIN ciudades c
 ON m.id_ciudad = c.id_ciudad;
 
 -- Aca esta bueno, descomentando y probando una a una, puedo mejorar la impresion de la informacion
-SELECT * FROM mesas m
-#SELECT m.id_mesa, m.mesa, m.id_ciudad, c.ciudad, c.id_provincia, p.provincia FROM mesas m
+#SELECT * FROM mesas m
+SELECT m.id_mesa, m.mesa, m.id_ciudad, c.ciudad, c.id_provincia, p.provincia FROM mesas m
 #SELECT m.id_mesa, m.mesa, c.ciudad, p.provincia FROM mesas m
 INNER JOIN ciudades c
 ON m.id_ciudad = c.id_ciudad 
 INNER JOIN provincias p 
 ON c.id_provincia = p.id_provincia;
 
--- MESAS....................	
+-- VOTOS....................	
+INSERT INTO votos  
+(id_mesa, id_partido, votos) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5);
+
+SELECT * FROM votos;
+
+-- Prueba de la PK 
 INSERT INTO votos 
-() VALUES
-(),
-(),
-(),
-();
+(id_mesa, id_partido, votos) VALUES 
+(1, 1, 2);	-- FUNCIONO! NO deja ingresar otro registro con votos, para la misma mesa y partido
 
+SELECT * FROM votos v
+INNER JOIN mesas m 
+ON v.id_mesa = m.id_mesa;
 
+-- yo intentandolo:
+SELECT * 
+FROM votos v
+INNER JOIN mesas m 
+ON v.id_mesa = m.id_mesa
+INNER JOIN partidos p 
+ON v.id_partido = p.id_partido
+WHERE p.partido = 'UTN';
 
+-- d) ESTA ES LA OPCION QUE MARQUE, que esta OK
+SELECT v.votos, m.mesa 
+FROM votos AS v
+INNER JOIN mesas AS m 
+ON v.id_mesa = m.id_mesa
+INNER JOIN partidos AS p 
+ON v.id_partido = p.id_partido
+WHERE p.partido = 'UTN';
 
+-- b) ESTA ES LA OPCION QUE NO MARQUE, dice que tambien esta OK -> y SI, realmente esta OK... F
+SELECT v.votos AS 'cantidad de votos del partido', m.mesa 
+FROM partidos AS p
+INNER JOIN votos AS v 
+ON p.id_partido = v.id_partido 
+INNER JOIN mesas AS m
+ON m.id_mesa = v.id_mesa 
+WHERE p.partido = 'UTN';
 
+-- a) Esta opcion, es incorrecta porque le falta agregarle un ALIAS a la tabla "partidos" e igualmente en 
+-- algunas partes no accede al atributo a traves del alias definido. 
+-- (PD: no la marque, solo marque la d) )Comprobandolo:
+SELECT v.votos AS 'cantidad de votos del partido', m.mesa 
+FROM partidos 					# <- ACA falto declarar el alias: "AS p"
+INNER JOIN votos AS v 	
+ON id_partido = v.id_partido 	# <- ACA falto acceder a traves del alias: "p.". Igualmente NO se declaro :v
+INNER JOIN mesas AS m 
+ON id_mesa = m.id_mesa 			# <- ACA lo mismo, falto acceder a traves del alias: "v.""
+WHERE p.partido = 'UTN';		# <- ACA esta perfecto, pero ese alias p NO fue definido..
 
-
-
-
+-- Aca corrijo el anterior como tendria que ser para que tambien sea una respuesta valida.
+-- Luego me di cuenta que asi, correjido, es exactamente igual que la opcion que no marque, que tambien era correcta: b)
+SELECT v.votos AS 'cantidad de votos del partido', m.mesa 
+FROM partidos AS p
+INNER JOIN votos AS v 	
+ON p.id_partido = v.id_partido 
+INNER JOIN mesas AS m 
+ON v.id_mesa = m.id_mesa 
+WHERE p.partido = 'UTN';	
 
 
 
