@@ -28,27 +28,27 @@ ALTER TABLE Departamento
 CHANGE COLUMN gastos gasto double;
 
 # ---------------------------------  CARGA DE REGISTROS  ---------------------------------
-INSERT INTO departamento VALUES(1, 'Desarrollo', 120000, 6000);
-INSERT INTO departamento VALUES(2, 'Sistemas', 150000, 21000);
-INSERT INTO departamento VALUES(3, 'Recursos Humanos', 280000, 25000);
-INSERT INTO departamento VALUES(4, 'Contabilidad', 110000, 3000);
-INSERT INTO departamento VALUES(5, 'I+D', 375000, 380000);
-INSERT INTO departamento VALUES(6, 'Proyectos', 0, 0);
-INSERT INTO departamento VALUES(7, 'Publicidad', 0, 1000);
+INSERT INTO Departamento VALUES(1, 'Desarrollo', 120000, 6000);
+INSERT INTO Departamento VALUES(2, 'Sistemas', 150000, 21000);
+INSERT INTO Departamento VALUES(3, 'Recursos Humanos', 280000, 25000);
+INSERT INTO Departamento VALUES(4, 'Contabilidad', 110000, 3000);
+INSERT INTO Departamento VALUES(5, 'I+D', 375000, 380000);
+INSERT INTO Departamento VALUES(6, 'Proyectos', 0, 0);
+INSERT INTO Departamento VALUES(7, 'Publicidad', 0, 1000);
 
-INSERT INTO empleado VALUES(1, '32481596F', 'Aarón', 'Rivero', 'Gómez', 1);
-INSERT INTO empleado VALUES(2, 'Y5575632D', 'Adela', 'Salas', 'Díaz', 2);
-INSERT INTO empleado VALUES(3, 'R6970642B', 'Adolfo', 'Rubio', 'Flores', 3);
-INSERT INTO empleado VALUES(4, '77705545E', 'Adrián', 'Suárez', NULL, 4);
-INSERT INTO empleado VALUES(5, '17087203C', 'Marcos', 'Loyola', 'Méndez', 5);
-INSERT INTO empleado VALUES(6, '38382980M', 'María', 'Santana', 'Moreno', 1);
-INSERT INTO empleado VALUES(7, '80576669X', 'Pilar', 'Ruiz', NULL, 2);
-INSERT INTO empleado VALUES(8, '71651431Z', 'Pepe', 'Ruiz', 'Santana', 3);
-INSERT INTO empleado VALUES(9, '56399183D', 'Juan', 'Gómez', 'López', 2);
-INSERT INTO empleado VALUES(10, '46384486H', 'Diego','Flores', 'Salas', 5);
-INSERT INTO empleado VALUES(11, '67389283A', 'Marta','Herrera', 'Gil', 1);
-INSERT INTO empleado VALUES(12, '41234836R', 'Irene','Salas', 'Flores', NULL);
-INSERT INTO empleado VALUES(13, '82635162B', 'Juan Antonio','Sáez', 'Guerrero', NULL);
+INSERT INTO Empleado VALUES(1, '32481596F', 'Aarón', 'Rivero', 'Gómez', 1);
+INSERT INTO Empleado VALUES(2, 'Y5575632D', 'Adela', 'Salas', 'Díaz', 2);
+INSERT INTO Empleado VALUES(3, 'R6970642B', 'Adolfo', 'Rubio', 'Flores', 3);
+INSERT INTO Empleado VALUES(4, '77705545E', 'Adrián', 'Suárez', NULL, 4);
+INSERT INTO Empleado VALUES(5, '17087203C', 'Marcos', 'Loyola', 'Méndez', 5);
+INSERT INTO Empleado VALUES(6, '38382980M', 'María', 'Santana', 'Moreno', 1);
+INSERT INTO Empleado VALUES(7, '80576669X', 'Pilar', 'Ruiz', NULL, 2);
+INSERT INTO Empleado VALUES(8, '71651431Z', 'Pepe', 'Ruiz', 'Santana', 3);
+INSERT INTO Empleado VALUES(9, '56399183D', 'Juan', 'Gómez', 'López', 2);
+INSERT INTO Empleado VALUES(10, '46384486H', 'Diego','Flores', 'Salas', 5);
+INSERT INTO Empleado VALUES(11, '67389283A', 'Marta','Herrera', 'Gil', 1);
+INSERT INTO Empleado VALUES(12, '41234836R', 'Irene','Salas', 'Flores', NULL);
+INSERT INTO Empleado VALUES(13, '82635162B', 'Juan Antonio','Sáez', 'Guerrero', NULL);
 
 
 # ---------------------------------  RESOLUCION DE EJERCICIOS  ---------------------------------
@@ -79,18 +79,27 @@ SELECT DISTINCT codigo_departamento FROM Empleado;
 
 # 7. Lista el nombre y apellidos de los empleados en una única columna.
 SELECT concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ...")) AS "Nombre y Apellidos" FROM Empleado;
+-- NOTA: si no agrego la funcion 'ifnull' el concat va a retornar todo null tan solo encontrar un atributo que es null
+--       Entonces, si sabemos que alguno de los atributos que le pasamos por argumento a la funcion concat
+--		 puede ser null, poner tal funcion 'ifnull' que lo revise por las dudas, y lo reemplazara por el segundo arg.
 
 
 # 8. Lista el nombre y apellidos de los empleados en una única columna, convirtiendo todos los caracteres en mayúscula.
 SELECT UPPER(
-concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ..."))) 
-AS "Nombre y Apellidos" FROM Empleado;
+  concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ..."))) 
+  AS "Nombre y Apellidos" FROM Empleado;
+
+-- NOTA: Si no le ponemos el AS para agregarle un alias, queda horrible, el nombre de la columna. 
+--       Toma todo lo que se le paso al UPPER, incluyendolo:
+SELECT UPPER(
+  concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ..."))) 
+  FROM Empleado;
 
 
 # 9. Lista el nombre y apellidos de los empleados en una única columna, convirtiendo todos los caracteres en minúscula.
 SELECT LOWER(
-concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ..."))) 
-AS "Nombre y Apellidos" FROM Empleado;
+  concat(nombre, " ", apellido1, " ", ifnull(apellido2, " ..."))) 
+  AS "Nombre y Apellidos" FROM Empleado;
 
 
 # 10.Lista el código de los empleados junto al nif, pero el nif deberá aparecer en dos columnas, 
@@ -106,30 +115,28 @@ FROM Empleado;
 # Para calcular este dato tendrá que restar al valor del presupuesto inicial (columna presupuesto) los gastos que se
 # han generado (columna gastos). Tenga en cuenta que en algunos casos pueden existir valores negativos. Utilice un alias 
 # apropiado para la nueva columna columna que está calculando.
-SELECT 
-  nombre, 
-  (presupuesto - gasto) AS "presupuesto actual" 
-FROM departamento;
+SELECT nombre, 
+  	   (presupuesto - gastos) AS "presupuesto actual" 
+FROM Departamento;
 
 
 # 12.Lista el nombre de los departamentos y el valor del presupuesto actual ordenado de forma ascendente.
-SELECT 
-  nombre, 
-  (presupuesto - gasto) AS "presupuesto actual" 
-FROM departamento
-WHERE (presupuesto - gasto) >= 0
-ORDER BY (presupuesto - gasto) ASC;
+SELECT nombre, 
+       (presupuesto - gastos) AS "presupuesto actual" 
+FROM Departamento
+WHERE (presupuesto - gastos) >= 0
+ORDER BY (presupuesto - gastos) ASC;
 
 
 # 13.Lista el nombre de todos los departamentos ordenados de forma ascendente.
 SELECT nombre 
-FROM departamento
-ORDER BY nombre ASC; -- Entiendo que no hace falta poner ASC, que es por default si no lo pongo, pero lo hago para que sea mejor :v 
+FROM Departamento
+ORDER BY nombre ASC; -- Entiendo que no hace falta poner ASC, que es por default si no lo pongo, pero lo hago para que se lea mejor :v 
 
 
 # 14.Lista el nombre de todos los departamentos ordenados de forma descendente.
 SELECT nombre 
-FROM departamento
+FROM Departamento
 ORDER BY nombre DESC;
 
 
@@ -144,9 +151,9 @@ ORDER BY apellido1, apellido2, nombre;	-- Por DEFAULT son todos ASC -> ascendent
 SELECT 
   codigo,
   nombre, 
-  (presupuesto - gasto) AS "presupuesto actual"
+  (presupuesto - gastos) AS "presupuesto actual"
 FROM Departamento 
-ORDER BY (presupuesto - gasto) DESC
+ORDER BY (presupuesto - gastos) DESC
 LIMIT 3;
 
 
@@ -164,19 +171,19 @@ LIMIT 3;
 SELECT 
   codigo,
   nombre,
-  gasto
+  gastos
 FROM Departamento
-ORDER BY gasto DESC
+ORDER BY gastos DESC
 LIMIT 2; 
 
 
-# 19.Devuelve una lista con el nombre y el gasto, de los 2 departamentos quetienen menor gasto.
+# 19.Devuelve una lista con el nombre y el gasto, de los 2 departamentos que tienen menor gasto.
 SELECT 
   codigo,
   nombre,
-  gasto 
+  gastos
 FROM Departamento
-ORDER BY gasto
+ORDER BY gastos
 LIMIT 2;
 
 
@@ -205,9 +212,9 @@ WHERE presupuesto >= 150000;
 SELECT 
   codigo,
   nombre,
-  gasto
+  gastos
 FROM Departamento 
-WHERE gasto <= 5000;
+WHERE gastos <= 5000;
 
 
 # 23.Devuelve una lista con el nombre de los departamentos y el presupuesto, de aquellos que tienen un presupuesto entre 
@@ -256,10 +263,10 @@ SELECT
   codigo,
   nombre,
   presupuesto, 
-  gasto,
-  presupuesto - gasto AS "presupuesto actual"
+  gastos,
+  presupuesto - gastos AS "presupuesto actual"
 FROM Departamento 
-WHERE gasto > presupuesto;
+WHERE gastos > presupuesto;
 
 
 # 28.Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los 
@@ -268,10 +275,10 @@ SELECT
   codigo,
   nombre,
   presupuesto, 
-  gasto,
-  presupuesto - gasto AS "presupuesto actual"
+  gastos,
+  presupuesto - gastos AS "presupuesto actual"
 FROM Departamento 
-WHERE gasto < presupuesto;
+WHERE gastos < presupuesto;
 
 
 # 29.Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los 
@@ -280,10 +287,10 @@ SELECT
   codigo,
   nombre,
   presupuesto, 
-  gasto,
-  presupuesto - gasto AS "presupuesto actual"
+  gastos,
+  presupuesto - gastos AS "presupuesto actual"
 FROM Departamento 
-WHERE gasto = presupuesto;
+WHERE gastos = presupuesto;
 
 
 # 30.Lista todos los datos de los empleados cuyo segundo apellido sea NULL.
