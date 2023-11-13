@@ -196,7 +196,7 @@ FROM Empleado e
 LEFT JOIN Departamento d 
 ON e.codigo_departamento = d.codigo 
 WHERE e.codigo_departamento != 1
-GROUP BY e.codigo_departamento 
+GROUP BY e.codigo_departamento
 HAVING suma > 3000;
 
 # Tratando de entender la consulta anterior:
@@ -214,6 +214,9 @@ GROUP BY e.codigo_departamento -- Es por este GROUP BY que solo se agarra al pri
 HAVING suma > 3000;			   -- Del resultado del GROUP BY, el HAVING filtra y solo muestra a aquellos cuya suma de gastos > 3000
 
 
+-- OBSERVACION: si en el SELECT pongo 2 columnas para mostrar, tambien debe estas las mismas dos columnas en el GROUP BY.
+-- 				Ya que estoy en debian, y no me dejo instalar MySQL, sino Maria DB, tener en cuenta que la anterior regla
+-- 			    se cumple en MySQL, aunque no se cumpla en este entorno donde estoy trabajando con: MariaDB. 
 SELECT d.codigo, d.nombre, 
 	   count(*) AS contar, 
 	   sum(gastos) AS suma
@@ -221,11 +224,11 @@ FROM Empleado e
 LEFT JOIN Departamento d 
 ON e.codigo_departamento = d.codigo 
 WHERE e.codigo_departamento != 1
-GROUP BY d.nombre 
+GROUP BY d.codigo, d.nombre
 HAVING suma > 3000;
 
 
-
+ 
 
 
 
