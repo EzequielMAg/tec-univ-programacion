@@ -79,8 +79,28 @@ SELECT e.codigo AS ID, e.nombre AS Nombre,
 	   d.codigo, d.nombre AS `Nombre del departamento`
 FROM Departamento d
 LEFT JOIN Empleado e ON e.codigo_departamento = d.codigo
+WHERE e.codigo IS NULL -- Asi esta en la resolucion. Agregando esta linea. Aunque esta linea NO hace falta, 
+					   -- porque el resultado es el mismo. PERO en realidad si hace falta, xq por detras, el motor
+					   -- estaria haciendo + trabajo de la cuenta, haciendo diagramas de VENN nos damos cuenta de una.
 ORDER BY `Nombre del departamento` ASC; -- Se que es ASC por DEFAULT, pero lo agrego = para mejorar la legibilidad.
 
+
+-- La anterior query sin comentarios:
+SELECT e.codigo AS ID, 
+	   e.nombre AS Nombre, 
+	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos,
+	   d.codigo, d.nombre AS `Nombre del departamento`
+FROM Empleado e
+LEFT JOIN Departamento d ON e.codigo_departamento = d.codigo
+UNION 
+SELECT e.codigo AS ID, 
+ 	   e.nombre AS Nombre, 
+       concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos,
+	   d.codigo, d.nombre AS `Nombre del departamento`
+FROM Departamento d
+LEFT JOIN Empleado e ON e.codigo_departamento = d.codigo
+WHERE e.codigo IS NULL 
+ORDER BY `Nombre del departamento` ASC;
 
 # 5. Devuelve un listado con los empleados que no tienen ningún departamento asociado y los departamentos que no 
 # tienen ningún empleado asociado. Ordene el listado alfabéticamente por el nombre del departamento.
