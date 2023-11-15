@@ -146,11 +146,15 @@ FROM (SELECT * FROM empleado WHERE codigo_departamento IS NOT NULL) AS empleados
 SELECT * FROM empleado e
 JOIN departamento d ON e.codigo_departamento = d.codigo 
 WHERE EXISTS (SELECT 1 FROM departamento WHERE gastos IS NOT null);
+-- El valor 1 esta para retornar algo que represente un valor. Como el EXISTS no se va a fijar que devuelve la subconsulta, sino
+-- en que devuelva algo, entonces no hace falta retornar un valor de la tabla.
+-- Por lo general el Existe se usa cuando tiene que evaluar algo en ambos consultas, es decir en subconsultas relacionadas.
+
 
 # --------------------------  SUBCONSULTAS RELACIONADAS  --------------------------
 -- Son subconsultas que dependen de valores devueltos por la consulta exterior.
 -- No pueden ejecutarse en forma independiente.
--- Se ejecuta una vez por cada fila de la consutla exterior.
+-- Se ejecuta una vez por cada fila de la consulta exterior.
 -- Pueden ser escalares, listas o matrices.
 
 -- EJEMPLO: aca la subconsulta no es independiente de la consulta general.
