@@ -118,7 +118,7 @@ WHERE e.codigo_departamento IS NULL;
 -- Me parecio mejor hacer esto despues, y la anterior sentencia trabajarla asi de entrada
 -- para resolverlo mas rapido, los detalles para despues
 SELECT e.codigo AS ID, e.nombre AS Nombre, 
-	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos, -- NO hace falta usar el AS, pero es + legible
+	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos, 
 	   d.codigo, d.nombre AS `Nombre del departamento` 
 FROM Empleado e
 LEFT JOIN Departamento d 
@@ -126,7 +126,7 @@ ON e.codigo_departamento = d.codigo
 WHERE e.codigo_departamento IS NULL
 UNION 
 SELECT e.codigo AS ID, e.nombre AS Nombre, 
-	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos, -- NO hace falta usar el AS, pero es + legible
+	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos, 
 	   d.codigo, d.nombre AS `Nombre del departamento` 
 FROM Empleado e
 RIGHT JOIN Departamento d 
@@ -138,3 +138,20 @@ ORDER BY `Nombre del departamento` ASC;
 *		 que es independiente del UNION. Este operador solo une las consultas para que se ejecuten al mismo tiempo.
 *		 Por lo que, si uso UNION, no significa que debo ahorrar un WHERE. 		
 **/	
+
+/* Viendo la resolucion, me podia haber ahorrado un where haciendo una proposicion compuesta en el ultimo WHERE:
+SELECT e.codigo AS ID, e.nombre AS Nombre, 
+	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos,
+	   d.codigo, d.nombre AS `Nombre del departamento` 
+FROM Empleado e
+LEFT JOIN Departamento d ON e.codigo_departamento = d.codigo 
+UNION 
+SELECT e.codigo AS ID, e.nombre AS Nombre, 
+	   concat(e.apellido1, " ", ifnull(e.apellido2, "")) AS Apellidos, 
+	   d.codigo, d.nombre AS `Nombre del departamento` 
+FROM Empleado e
+RIGHT JOIN Departamento d ON e.codigo_departamento = d.codigo
+WHERE e.codigo IS NULL OR d.codigo IS NULL 
+ORDER BY `Nombre del departamento` ASC;*/
+# AL FINAL COMPROBE QUE LA RESOLUCION DE ESTE EJERCICIO ESTA MAL! Para confundir peor esta. 
+# No cumple el ejerc tal consulta, HAY QUE PONER LOS WHERE EN AMBAS CONSULTAS!
