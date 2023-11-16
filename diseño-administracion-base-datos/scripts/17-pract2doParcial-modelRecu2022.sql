@@ -27,8 +27,8 @@ CREATE DATABASE `utn-practrec2doParcial-2022`;
 USE `utn-practrec2doParcial-2022`;
 
 /* -----------------  CREACION DE TABLAS  -----------------
-CREATE TABLE (
-	legajo int EmpleadoAUTO_INCREMENT,
+CREATE TABLE Empleado(
+	legajo int AUTO_INCREMENT,
  	apellido varchar(50) NOT NULL, 
   	nombre varchar(50) NOT NULL,
   	idTurno int NOT NULL,
@@ -157,11 +157,16 @@ SELECT idTurno,
 FROM empleado
 GROUP BY idTurno;
 
--- La query que pide el ejercicio:
-SELECT idTurno, legajo, apellido, nombre, sueldoBasico 
-FROM empleado e1
-WHERE sueldoBasico < (SELECT sueldoBasico FROM empleado WHERE e1.idCodigo)
-GROUP BY idTurno;
+-- La query que pide el ejercicio (me ayudo a finalizarla CHATGPT):
+SELECT e.idTurno, e.legajo, e.apellido, e.nombre, e.sueldoBasico
+FROM Empleado e
+JOIN (SELECT idTurno, AVG(sueldoBasico) AS sueldoPromedio
+      FROM Empleado
+      GROUP BY idTurno) AS t 
+ON e.idTurno = t.idTurno
+WHERE e.sueldoBasico < t.sueldoPromedio
+ORDER BY e.idTurno;
+
 
 # c. Crear un procedimiento que tome por parametro una fecha de inicio y una fecha de fin y  
 #	 devuelva todos los empleados indicando cuales cobraron sueldo, con el siguiente formato:
@@ -170,7 +175,23 @@ GROUP BY idTurno;
 #	  1001		SI
 #	  1002		NO
 
+delimiter $$
+CREATE PROCEDURE verificarCobroSueldo
+(
+	IN p_fechaInicial date,
+	IN p_fechaFinal date
+)
+BEGIN
+	SELECT e.legajo, 
+		   CASE WHEN r.nroRecibo IS NOT NULL THEN 'SI' 
+		   		ELSE 'NO' 
+		   		END AS 'cobro sueldo'
+	FROM empleado e 
+	LEFT JOIN recibo r ON r.legajo = e.legajo AND r.fecha BETWEEN p_fechaInicial AND p_fechaFinal; 
+END 
+$$ 
+delimiter ;
 
-
+CALL verificarCobroSueldo('2023-11-1', '2023-11-30');
 
 
