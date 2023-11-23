@@ -26,8 +26,13 @@
 CREATE DATABASE `utn-practrec2doParcial-2022`;
 USE `utn-practrec2doParcial-2022`;
 
+<<<<<<< HEAD
 /* -----------------  CREACION DE TABLAS  -----------------
 CREATE TABLE Empleado(
+=======
+ -- -----------------  CREACION DE TABLAS  -----------------
+CREATE TABLE Empleado (
+>>>>>>> ef20b28 (Practica BD)
 	legajo int AUTO_INCREMENT,
  	apellido varchar(50) NOT NULL, 
   	nombre varchar(50) NOT NULL,
@@ -58,9 +63,9 @@ DROP TABLE Recibo;
 
 ALTER TABLE Recibo 
 DROP FOREIGN KEY fk_legajo_empleado;
-*/
 
-/* -----------------  CARGA DE DATOS  ----------------- 
+
+-- -----------------  CARGA DE DATOS  ----------------- 
 INSERT INTO Turno 
 (nombre) VALUES
 ('Mañana'),
@@ -74,16 +79,16 @@ INSERT INTO Empleado
 ('Fernandez', 'Marcelo', '3', 750000),
 ('Messi', 'Leo', '1', 10000000);
 
-INSERT INTO recibo 
+INSERT INTO Recibo 
 (legajo, fecha) VALUES 
 (1, '2023-11-16');
 
-INSERT INTO recibo 
+INSERT INTO Recibo 
 (legajo, fecha) VALUES 
 (2, '2023-11-16'),
 (3, '2023-11-16');
 
-INSERT INTO recibo 
+INSERT INTO Recibo 
 (legajo, fecha) VALUES 
 (1, '2023-1-16'),
 (2, '2023-1-16'),
@@ -115,7 +120,7 @@ INSERT INTO recibo
 (1, '2023-10-16'),
 (2, '2023-10-16'),
 (3, '2023-10-16');
-*/
+
 
 SELECT * FROM empleado;
 SELECT * FROM turno;
