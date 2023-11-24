@@ -2,7 +2,7 @@ CREATE DATABASE `segundo-parcial-bd`;
 
 USE `segundo-parcial-bd`;
 
-/*
+/* # ----------------------------  CREACION DE TABLAS Y CARGA DE DATOS  ----------------------------
 CREATE TABLE Ciudades (
     CiudadId INT PRIMARY KEY AUTO_INCREMENT,
     Ciudad VARCHAR(50) NOT NULL
@@ -62,38 +62,30 @@ INSERT INTO Viajes (ClienteID, TrayectoID, Fecha) VALUES
 
 */
 
-# -------------------------------------------------------------------------------------
+# ---------------------------------------  EJERCICIO 1.a.  ---------------------------------------
 # 1.a.
-SELECT
-    c.Cliente,
-    SUM(CASE WHEN YEAR(v.Fecha) = 2021 THEN 1 ELSE 0 END) AS '2021',
-    SUM(CASE WHEN YEAR(v.Fecha) = 2022 THEN 1 ELSE 0 END) AS '2022',
-    SUM(CASE WHEN YEAR(v.Fecha) = 2023 THEN 1 ELSE 0 END) AS '2023'
-FROM
-    Clientes c
-    LEFT JOIN Viajes v ON c.ClienteID = v.ClienteID
-WHERE
-    YEAR(v.Fecha) BETWEEN 2021 AND 2023
-GROUP BY
-    c.Cliente;
+SELECT c.Cliente,
+	   SUM(CASE WHEN YEAR(v.Fecha) = 2021 THEN 1 ELSE 0 END) AS '2021',
+	   SUM(CASE WHEN YEAR(v.Fecha) = 2022 THEN 1 ELSE 0 END) AS '2022',
+	   SUM(CASE WHEN YEAR(v.Fecha) = 2023 THEN 1 ELSE 0 END) AS '2023'
+FROM Clientes c
+LEFT JOIN Viajes v ON c.ClienteID = v.ClienteID
+WHERE YEAR(v.Fecha) BETWEEN 2021 AND 2023
+GROUP BY c.Cliente;
 
-# 1.a. SEGUNDA FORMA PASADA POR JUANMAA   
-SELECT
-    c.Cliente,
-    COUNT(CASE WHEN YEAR(v.Fecha) = 2021 THEN 1 ELSE NULL END) AS "2021",
-    COUNT(CASE WHEN YEAR(v.Fecha) = 2022 THEN 1 ELSE NULL END) AS "2022",
-    COUNT(CASE WHEN YEAR(v.Fecha) = 2023 THEN 1 ELSE NULL END) AS "2023"
-FROM
-    Clientes c
-LEFT JOIN
-    Viajes v ON c.ClienteId = v.ClienteId
-GROUP BY
-    c.Cliente;
+# 1)a) OTRA FORMA DE REALIZARLO ----------------------------
+SELECT c.Cliente,
+       COUNT(CASE WHEN YEAR(v.Fecha) = 2021 THEN 1 ELSE NULL END) AS "2021",
+       COUNT(CASE WHEN YEAR(v.Fecha) = 2022 THEN 1 ELSE NULL END) AS "2022",
+       COUNT(CASE WHEN YEAR(v.Fecha) = 2023 THEN 1 ELSE NULL END) AS "2023"
+FROM Clientes c
+LEFT JOIN Viajes v ON c.ClienteId = v.ClienteId
+GROUP BY c.Cliente;
 
    
-# -------------------------------------------------------------------------------------
-   -- Asumiendo que CiudadId 1 es 'Mar del plata' y CiudadId 2 es 'Córdoba'
--- Insertar más viajes en el año 2023 que en 2022 para Mar del plata y Córdoba
+# ---------------------------------------  EJERCICIO 1.b.  ---------------------------------------
+-- Asumiendo que CiudadId 1 es 'Mar del plata' y CiudadId 2 es 'Córdoba'
+-- Insertando más viajes en el año 2023 que en 2022 para Mar del plata y Córdoba
 INSERT INTO Viajes (ClienteID, TrayectoID, Fecha) VALUES
 (1, 1, '2022-01-01'),  -- Viaje en 2022 desde Mar del plata
 (1, 1, '2022-02-15'),  -- Viaje en 2022 desde Mar del plata
@@ -104,71 +96,51 @@ INSERT INTO Viajes (ClienteID, TrayectoID, Fecha) VALUES
 (1, 2, '2023-07-15'),  -- Viaje en 2023 desde Córdoba
 (1, 2, '2023-08-20');  -- Viaje en 2023 desde Córdoba
 
-# -------------------------------------------------------------------------------------
-   
-#1)b) de juanmaaaa
-SELECT
-    C.Ciudad AS Origen,
-    SUM(CASE WHEN YEAR(V.Fecha) = 2023 THEN 1 ELSE 0 END) AS cantidad_viajes
-FROM
-    Ciudades C
+  
+# 1)b) 
+SELECT C.Ciudad AS Origen,
+       SUM(CASE WHEN YEAR(V.Fecha) = 2023 THEN 1 ELSE 0 END) AS cantidad_viajes
+FROM Ciudades C
 JOIN Trayectos T ON C.CiudadId = T.Origen
 JOIN Viajes V ON T.TrayectoId = V.TrayectoId
 WHERE YEAR(V.Fecha) IN (2022, 2023)
-GROUP BY  C.CiudadId, C.Ciudad
-HAVING
-    SUM(CASE WHEN YEAR(V.Fecha) = 2023 THEN 1 ELSE 0 END) >
-    SUM(CASE WHEN YEAR(V.Fecha) = 2022 THEN 1 ELSE 0 END);
+GROUP BY C.CiudadId, C.Ciudad
+HAVING SUM(CASE WHEN YEAR(V.Fecha) = 2023 THEN 1 ELSE 0 END) >
+       SUM(CASE WHEN YEAR(V.Fecha) = 2022 THEN 1 ELSE 0 END);
    
-# -------------------------------------------------------------------------------------
-#1.C REVISARRRRRRRRRRRRRRR parece que es la misma consulta de amvbos lados
-SELECT
-    'Mar del Plata' AS Ciudad,
-    COUNT(*) AS CantidadViajes
-FROM
-    Ciudades C
-JOIN
-    Trayectos T ON C.CiudadId = T.Origen
-JOIN
-    Viajes V ON T.TrayectoId = V.TrayectoId
-WHERE
-    C.Ciudad = 'Mar del Plata'
-
+# ---------------------------------------  EJERCICIO 1.c.  ---------------------------------------
+# 1)c)
+SELECT 'Mar del Plata' AS Ciudad,
+       COUNT(*) AS CantidadViajes
+FROM Ciudades C
+JOIN Trayectos T ON C.CiudadId = T.Origen
+JOIN Viajes V ON T.TrayectoId = V.TrayectoId
+WHERE C.Ciudad = 'Mar del Plata'
 UNION
-
 -- Cantidad de viajes hacia "Mar del Plata"
-SELECT
-    'Mar del Plata' AS Ciudad,
-    COUNT(*) AS CantidadViajes
-FROM
-    Ciudades C
-JOIN
-    Trayectos T ON C.CiudadId = T.Destino
-JOIN
-    Viajes V ON T.TrayectoId = V.TrayectoId
-WHERE
-    C.Ciudad = 'Mar del Plata';
-   
-# flor me lo paso;: ----------------------------
-   -- Viajes con origen en "Mar del Plata"
-SELECT
-    COUNT(*) AS cantidad_viajes
+SELECT 'Mar del Plata' AS Ciudad,
+       COUNT(*) AS CantidadViajes
+FROM Ciudades C
+JOIN Trayectos T ON C.CiudadId = T.Destino
+JOIN Viajes V ON T.TrayectoId = V.TrayectoId
+WHERE C.Ciudad = 'Mar del Plata';
+
+# 1)c) OTRA FORMA DE REALIZARLO (flor me lo paso): ----------------------------
+ -- Viajes con origen en "Mar del Plata"
+SELECT COUNT(*) AS cantidad_viajes
 FROM viajes v
 JOIN trayectos t ON v.trayectoId = t.trayectoId
 JOIN ciudades c ON t.origen = c.ciudadId
 WHERE c.ciudad = 'Mar del Plata'
-
 UNION
-
 -- Viajes con destino en "Mar del Plata"
-SELECT
-    COUNT(*) AS cantidad_viajes
+SELECT COUNT(*) AS cantidad_viajes
 FROM viajes v
 JOIN trayectos t ON v.trayectoId = t.trayectoId
 JOIN ciudades c ON t.destino = c.ciudadId
 WHERE c.ciudad = 'Mar del Plata';
-   
-#2) 
+
+# ---------------------------------------  EJERCICIO 2  ---------------------------------------
 CREATE PROCEDURE InsertarViajeClienteNuevo(
     IN p_NombreCliente NVARCHAR(50),
     IN p_CategoriaCliente CHAR(1),
@@ -191,10 +163,4 @@ BEGIN
     VALUES (NuevoClienteId, p_IdTrayecto, p_FechaViaje);
 END 
    
-
-
-
-
-
-
 CALL InsertarViajeClienteNuevo("Juan", 'A', 1, '2021-01-01 00:00:00');
