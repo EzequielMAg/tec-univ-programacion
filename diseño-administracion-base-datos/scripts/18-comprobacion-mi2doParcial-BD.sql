@@ -158,7 +158,7 @@ BEGIN
     -- Obtener el ClienteId del nuevo cliente
     SET NuevoClienteId = LAST_INSERT_ID();
 
-    -- Insertar nuevo viaje
+    -- Insertar nuevo viaje 
     INSERT INTO Viajes (ClienteId, TrayectoId, Fecha)
     VALUES (NuevoClienteId, p_IdTrayecto, p_FechaViaje);
 END 
