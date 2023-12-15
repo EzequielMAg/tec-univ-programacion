@@ -4,7 +4,7 @@
  * 
  */
 
-/* 1. Realizar las sentencias SQL en base al siguiente modelo:
+/* 1. Realizar las sentencias SQL en base al siguiente modelo: 
 *
 *	>>> Empleado
 *	Legajo int(PK)
